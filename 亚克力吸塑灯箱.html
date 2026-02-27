@@ -1,151 +1,116 @@
 <!DOCTYPE html>
+<html lang="zh-CN">
+<head>
 <meta charset="utf-8">
 <title>古月·亚克力吸塑灯箱门头提示词生成器</title>
 <style>
-*{
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: "Microsoft YaHei", sans-serif;
-}
+*{box-sizing:border-box;margin:0;padding:0;font-family:"Microsoft YaHei",sans-serif;}
 body{
-  background: linear-gradient(135deg, #FCFCFD 0%, #F5F7FA 100%);
-  min-height: 100vh;
-  padding: 20px 0 60px;
+  background: linear-gradient(135deg,#FCFCFD 0%,#F5F7FA 100%);
+  min-height:100vh;
+  padding:20px 0 60px;
 }
 /* 顶部标题栏 */
 .header{
-  width: 100%;
-  background: linear-gradient(90deg, #2563EB, #3B82F6);
-  color: #fff;
-  text-align: center;
-  padding: 40px 20px;
-  margin-bottom: 30px;
-  border-radius: 0 0 16px 16px;
-  box-shadow: 0 4px 16px rgba(37,99,235,0.12);
+  width:100%;
+  background: linear-gradient(90deg,#2563EB,#3B82F6);
+  color:#fff;
+  text-align:center;
+  padding:40px 20px;
+  margin-bottom:30px;
+  border-radius:0 0 16px 16px;
+  box-shadow:0 4px 16px rgba(37,99,235,0.12);
 }
-.header h1{
-  font-size: 28px;
-  margin-bottom: 8px;
-}
-.header p{
-  font-size: 15px;
-  opacity: 0.9;
-}
-/* 输入容器 */
+.header h1{font-size:28px;margin-bottom:8px;}
+.header p{font-size:15px;opacity:0.9;}
+/* 输入区域 */
 .input-wrap{
-  max-width: 800px;
-  margin: 0 auto 30px;
-  background: #fff;
-  padding: 30px;
-  border-radius: 16px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+  max-width:800px;
+  margin:0 auto 30px;
+  background:#fff;
+  padding:30px;
+  border-radius:16px;
+  box-shadow:0 6px 20px rgba(0,0,0,0.05);
 }
-.label{
-  font-size: 16px;
-  color: #1F2937;
-  font-weight: 500;
-  margin-bottom: 10px;
-}
+.label{font-size:16px;color:#1F2937;font-weight:500;margin-bottom:10px;}
 .input-box{
-  width: 100%;
-  padding: 15px 20px;
-  font-size: 16px;
-  border: 1px solid #E5E7EB;
-  border-radius: 10px;
-  outline: none;
-  transition: 0.2s;
-  margin-bottom: 20px;
+  width:100%;
+  padding:15px 20px;
+  font-size:16px;
+  border:1px solid #E5E7EB;
+  border-radius:10px;
+  outline:none;
+  transition:0.2s;
+  margin-bottom:20px;
 }
-.input-box:focus{
-  border-color: #2563EB;
-  box-shadow: 0 0 0 4px rgba(37,99,235,0.1);
-}
+.input-box:focus{border-color:#2563EB;box-shadow:0 0 0 4px rgba(37,99,235,0.1);}
 .gen-btn{
-  width: 100%;
-  padding: 16px;
-  background: linear-gradient(90deg, #2563EB, #60A5FA);
-  color: #fff;
-  border: none;
-  border-radius: 10px;
-  font-size: 17px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: 0.3s;
+  width:100%;
+  padding:16px;
+  background:linear-gradient(90deg,#2563EB,#60A5FA);
+  color:#fff;
+  border:none;
+  border-radius:10px;
+  font-size:17px;
+  font-weight:500;
+  cursor:pointer;
+  transition:0.3s;
 }
-.gen-btn:hover{
-  transform: translateY(-2px);
-  box-shadow: 0 8px 16px rgba(37,99,235,0.15);
-}
-.gen-btn:disabled{
-  background: #93C5FD;
-  cursor: not-allowed;
-  transform: none;
-}
+.gen-btn:hover{transform:translateY(-2px);box-shadow:0 8px 16px rgba(37,99,235,0.15);}
+.gen-btn:disabled{background:#93C5FD;cursor:not-allowed;transform:none;}
 /* 结果区域 */
 .result-wrap{
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 0 20px;
+  max-width:800px;
+  margin:0 auto;
+  padding:0 20px;
 }
 .result-item{
-  background: #fff;
-  padding: 20px;
-  border-radius: 12px;
-  margin-bottom: 12px;
-  border-left: 4px solid #2563EB;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.04);
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 15px;
+  background:#fff;
+  padding:20px;
+  border-radius:12px;
+  margin-bottom:12px;
+  border-left:4px solid #2563EB;
+  box-shadow:0 2px 10px rgba(0,0,0,0.04);
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:15px;
 }
-.item-text{
-  flex: 1;
-  font-size: 14px;
-  line-height: 1.6;
-  color: #374151;
-}
+.item-text{flex:1;font-size:14px;line-height:1.6;color:#374151;}
 .copy-btn{
-  padding: 8px 12px;
-  background: #2563EB;
-  color: #fff;
-  border: none;
-  border-radius: 6px;
-  font-size: 13px;
-  cursor: pointer;
-  white-space: nowrap;
-  transition: 0.2s;
+  padding:8px 12px;
+  background:#2563EB;
+  color:#fff;
+  border:none;
+  border-radius:6px;
+  font-size:13px;
+  cursor:pointer;
+  white-space:nowrap;
+  transition:0.2s;
 }
-.copy-btn:hover{
-  background: #1D4ED8;
-}
-.copy-btn.copied{
-  background: #CCCCCC !important;
-  color: #666666 !important;
-  cursor: default !important;
-}
+.copy-btn:hover{background:#1D4ED8;}
+.copy-btn.copied{background:#CCCCCC !important;color:#666666 !important;cursor:default !important;}
 /* 一键复制全部 */
 .copy-all-btn{
-  display: block;
-  margin: 20px auto 0;
-  padding: 12px 24px;
-  background: #2563EB;
-  color: #fff;
-  border: none;
-  border-radius: 8px;
-  font-size: 15px;
-  cursor: pointer;
+  display:block;
+  margin:20px auto 0;
+  padding:12px 24px;
+  background:#2563EB;
+  color:#fff;
+  border:none;
+  border-radius:8px;
+  font-size:15px;
+  cursor:pointer;
 }
-.copy-all-btn:hover{
-  background: #1D4ED8;
-}
+.copy-all-btn:hover{background:#1D4ED8;}
 </style>
+</head>
+<body>
 
 <!-- 顶部标题 -->
 <div class="header">
   <h1>🪟 古月·亚克力吸塑灯箱门头提示词生成器</h1>
-  <p>白天正立面｜平视无遮挡｜8K写实｜100%可施工</p>
+  <p>白天正立面｜夜晚发光｜门头异形｜字体多版本｜8K写实｜100%可施工</p>
 </div>
 
 <!-- 输入区域 -->
@@ -159,85 +124,67 @@ body{
 <div class="result-wrap" id="resultWrap"></div>
 
 <script>
-// 存储所有生成的提示词
 let allPrompts = [];
 
-// 生成单条提示词（保证20组不重复）
-function createPrompt(industry, index) {
-  // 主营品类+标语变体库
-  const variants = [
-    "主营品类+简洁醒目标语", "特色品类+清晰易记标语", "招牌品类+直观吸睛标语",
-    "核心品类+简洁有力标语", "爆款品类+明了易懂标语", "主营项目+简洁醒目文字",
-    "特色项目+清晰直观标语", "招牌项目+简洁明了文字", "核心项目+易读吸睛标语",
-    "爆款项目+简洁记忆点标语", "主营服务+清晰醒目标语", "特色服务+简洁吸睛标语",
-    "招牌服务+明了直观标语", "核心服务+简洁易懂标语", "爆款服务+清晰记忆点标语",
-    "主营产品+简洁醒目标语", "特色产品+清晰易记标语", "招牌产品+简洁直观标语",
-    "核心产品+明了吸睛标语", "爆款产品+简洁清晰标语"
+function createPrompt(industry, index){
+  const timeVariants=["白天自然光","夜晚发光灯箱效果","黄昏柔光下"];
+  const shapeVariants=["标准矩形灯箱","弧形异形灯箱","波浪形灯箱","立体雕刻造型灯箱","自由造型吸塑门头"];
+  const fontVariants=["圆体字体","黑体字体","手写体字体","衬线体字体","个性创意字体"];
+  const sloganVariants=[
+    "主营品类+简洁醒目标语","特色品类+清晰易记标语","招牌品类+直观吸睛标语",
+    "核心品类+简洁有力标语","爆款品类+明了易懂标语"
   ];
 
-  // 拼接完整提示词（包含所有强制元素）
-  return `白天自然光，门头正立面，完整展示，正面平视视角，无透视畸变，无遮挡，亚克力吸塑灯箱门头，立体吸塑造型，整体发光，${industry}店铺门头，亚克力吸塑面板、吸塑灯箱、LED内置光源、金属边框、烤漆底板、亚克力发光字，品牌店名+${variants[index]}，清晰醒目字体，日间灯箱整体均匀发光、立体吸塑部位高亮通透，8K高清，商业写实效果图，细节丰富，色彩自然，可直接施工参考`;
+  const time=timeVariants[Math.floor(Math.random()*timeVariants.length)];
+  const shape=shapeVariants[Math.floor(Math.random()*shapeVariants.length)];
+  const font=fontVariants[Math.floor(Math.random()*fontVariants.length)];
+  const slogan=sloganVariants[index % sloganVariants.length];
+
+  return `${time}，门头正立面，完整展示，正面平视视角，无透视畸变，${shape}，亚克力吸塑灯箱，整体发光，${industry}店铺门头，亚克力吸塑面板、吸塑灯箱、LED内置光源、金属边框、烤漆底板、亚克力发光字，品牌店名+${slogan}，${font}，立体吸塑部位高亮通透，8K高清，商业写实效果图，细节丰富，色彩自然，可直接施工参考`;
 }
 
-// 复制单条提示词（永久变灰）
-function copySingle(text, btn) {
-  navigator.clipboard.writeText(text).then(() => {
+function copySingle(text, btn){
+  navigator.clipboard.writeText(text).then(()=>{
     btn.classList.add('copied');
-    btn.textContent = "已复制";
+    btn.textContent="已复制";
   });
 }
 
-// 一键复制全部20组
-function copyAll() {
-  const allText = allPrompts.join("\n\n");
-  navigator.clipboard.writeText(allText).then(() => {
-    alert("✅ 已成功复制全部20组提示词！");
-  });
+function copyAll(){
+  const allText=allPrompts.join("\n\n");
+  navigator.clipboard.writeText(allText).then(()=>{alert("✅ 已成功复制全部20组提示词！");});
 }
 
-// 生成20组提示词主函数
-function generatePrompts() {
-  const industry = document.getElementById("industryInput").value.trim();
-  const genBtn = document.getElementById("genBtn");
-  const resultWrap = document.getElementById("resultWrap");
+function generatePrompts(){
+  const industry=document.getElementById("industryInput").value.trim();
+  const genBtn=document.getElementById("genBtn");
+  const resultWrap=document.getElementById("resultWrap");
 
-  // 校验输入
-  if (!industry) {
-    alert("请输入店铺行业类型（如：餐饮美食、奶茶咖啡、便利店等）");
-    return;
-  }
+  if(!industry){alert("请输入店铺行业类型（如：餐饮美食、奶茶咖啡、便利店等）");return;}
 
-  // 按钮加载状态
-  genBtn.disabled = true;
-  genBtn.textContent = "正在生成...";
-  resultWrap.innerHTML = "";
-  allPrompts = [];
+  genBtn.disabled=true;
+  genBtn.textContent="正在生成...";
+  resultWrap.innerHTML="";
+  allPrompts=[];
 
-  // 生成逻辑
-  setTimeout(() => {
-    let resultHtml = "";
-    for (let i = 0; i < 20; i++) {
-      const prompt = createPrompt(industry, i);
+  setTimeout(()=>{
+    let resultHtml="";
+    for(let i=0;i<20;i++){
+      const prompt=createPrompt(industry,i);
       allPrompts.push(prompt);
-      resultHtml += `
-        <div class="result-item">
-          <div class="item-text">${i+1}. ${prompt}</div>
-          <button class="copy-btn" onclick="copySingle('${prompt.replace(/'/g, "&apos;")}', this)">复制</button>
-        </div>
-      `;
+      resultHtml+=`
+      <div class="result-item">
+        <div class="item-text">${i+1}. ${prompt}</div><div class="item-text">${i+1}. ${提示}</div>
+        <button class="copy-btn" onclick="copySingle('${prompt.replace(/'/g,"&apos;")}',this)">复制</button>
+      </div>`;
     }
-
-    // 添加一键复制按钮
-    resultHtml += `<button class="copy-all-btn" onclick="copyAll()">📋 一键复制全部20组</button>`;
-    
-    // 渲染结果
-    resultWrap.innerHTML = resultHtml;
-    
-    // 恢复按钮状态
-    genBtn.disabled = false;
-    genBtn.textContent = "🚀 生成20组提示词";
-  }, 800);
+    resultHtml+=`<button class="copy-all-btn" onclick="copyAll()">📋 一键复制全部20组</button>`;
+    resultWrap.innerHTML=resultHtml;
+    genBtn.disabled=false;
+    genBtn.textContent="🚀 生成20组提示词";
+  },800);
 }
 </script>
+
 </body>
 </html>
